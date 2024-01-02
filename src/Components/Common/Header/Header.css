@@ -1,0 +1,40 @@
+/* ------- NAVBAR ------- */
+.navbar{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background-color: var(--black);
+    z-index: 100;
+}
+
+
+/* ----- LOGO -------- */
+.logo{
+    font-size: 1.2rem;
+}
+
+
+/* ------- LINKS -------- */
+.links{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+/* ------- LINK ------- */
+.link{
+    color: var(--grey);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all .3s ease-in-out;
+}
+
+/* hover  */
+.link:hover{
+    color: var(--white);
+}
