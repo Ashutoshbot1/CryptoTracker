@@ -1,6 +1,8 @@
 import React from "react";
 import "./Header.css";
-import { a } from "react-router-dom";
+import TemporaryDrawer from "./Drawer";
+import Button from "../Button/Button";
+import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div className="navbar">
@@ -8,18 +10,22 @@ const Header = () => {
         CryptoTracker <span style={{ color: "var(--blue)" }}>.</span>
       </h1>
       <div className="links">
-        <a href="/">
+        <NavLink to="/">
           <p className="link">Home</p>
-        </a>
-        <a href="/compare">
+        </NavLink>
+        <NavLink to="/compare">
           <p className="link">Compare</p>
-        </a>
-        <a href="/watchlist">
+        </NavLink>
+        <NavLink to="/watchlist">
           <p className="link">Watchlist</p>
-        </a>
-        <a href="/dashboard">
-          <p className="link">Dashboard</p>
-        </a>
+        </NavLink>
+        <NavLink to="/dashboard">
+          <Button text={"Dashboard"} onClick={()=>console.log("cli")}/>
+        </NavLink>
+      </div>
+
+      <div className="mobile-drawer">
+        <TemporaryDrawer />
       </div>
     </div>
   );

@@ -58,3 +58,9 @@ a{
   color: var(--white);
   text-decoration: none;
 }
+
+
+/* --------- NavLink --------- */
+a.active{
+  color: var(--blue);
+}

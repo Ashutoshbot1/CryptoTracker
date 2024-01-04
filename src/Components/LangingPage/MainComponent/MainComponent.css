@@ -1,0 +1,292 @@
+/* ------ flex-info ------- */
+
+.flex-info{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: .5rem 3rem;
+}
+
+
+/* --------- left-component --------- */
+.left-component{
+    /* border: 2px solid green; */
+    /* width: 50%; */
+}
+
+
+/* ------ track-crypto-heading AND  real-time-heading-------- */
+.track-crypto-heading,
+.real-time-heading{
+    font-size: 6.5rem;
+    margin: 0;
+}
+
+
+/* --------- track-crypto-heading ------- */
+.track-crypto-heading{
+    color: var(--white);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--white);
+    transition: all .3s ease-in-out;
+}
+
+.track-crypto-heading:hover{
+    color: var(--black);
+    -webkit-text-stroke-color: var(--white);
+}
+
+
+/* -------- real-time-heading --------- */
+.real-time-heading{
+    color: var(--blue);
+}
+
+
+/* --------- .info-text ------- */
+.info-text{
+    font-size: 1rem;
+    color: var(--grey);
+}
+
+
+/* --------- .btn-flex ----------- */
+.btn-flex{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+
+
+/* ###################### PHONE CONTAINER ##################### */
+
+/* ------ phone-container ------ */
+.phone-container{
+    /* border: 2px solid green; */
+    width: 40%;
+    position: relative;
+    padding: 1rem;
+}
+
+
+/* ------- iphone ------- */
+.iphone{
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    min-width: 250px;
+    width: 50%;
+}
+
+
+/* ------- gradient ------- */
+.gradient{
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    width: 40%;
+    top:8rem;
+}
+
+
+
+
+/* ################## MEDIA QURIES ################# */
+
+@media only screen and (max-width:1270px) {
+    /* ------ track-crypto-heading AND  real-time-heading-------- */
+    .track-crypto-heading,
+    .real-time-heading{
+        font-size: 7.5vw;
+        margin: 0;
+    }
+
+    /* ------ phone-container ------ */
+    .phone-container{
+        width: 30%;
+    }
+}
+
+
+
+
+@media only screen and (max-width:1000px) {
+
+    /* --------- .info-text ------- */
+    .info-text{
+        font-size: 1.5vw;
+        color: var(--grey);
+    }
+
+    /* ------ phone-container ------ */
+    .phone-container{
+        width: 25%;
+    }
+
+    /* ------- iphone ------- */
+    .iphone{
+        min-width:230px;
+        width: 45%;
+    }
+
+
+    /* ------- gradient ------- */
+    .gradient{
+        min-width: 180px;
+        top: 6rem;
+    }
+}
+
+
+
+@media only screen and (max-width:800px) {
+
+    .flex-info{
+        flex-direction: column;
+        gap:1rem
+    }
+
+    /* ------ track-crypto-heading AND  real-time-heading-------- */
+    .track-crypto-heading,
+    .real-time-heading{
+        font-size: 4rem;
+        margin: 0;
+    }
+
+    /* --------- track-crypto-heading ------- */
+    .track-crypto-heading{
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: var(--white);
+    }
+
+    /* --------- .info-text ------- */
+    .info-text{
+        font-size: .9rem;
+        color: var(--grey);
+    }
+
+    /* --------- .btn-flex ----------- */
+    .btn-flex{
+        /* border: 2px solid; */
+        justify-content: center;
+    }
+
+    /* --------- left-component --------- */
+    .left-component{
+        width: 100%;
+        text-align: center;
+        /* margin-top: 1rem; */
+    }
+
+        /* ------ phone-container ------ */
+        .phone-container{
+            width: 100%;
+        }
+    
+        /* ------- iphone ------- */
+        .iphone{
+            min-width:230px;
+            width: 28%;
+            transform: translate(-50%);
+            left: 45%
+        }
+    
+    
+        /* ------- gradient ------- */
+        .gradient{
+            min-width: 180px;
+            width: 20%;
+            top: 6rem;
+            transform: translate(-50%);
+            left: 50%;
+        }
+
+}
+
+
+@media only screen and (max-width:617px) {
+
+    .flex-info{
+        flex-direction: column;
+        gap:1rem
+    }
+
+    /* ------ track-crypto-heading AND  real-time-heading-------- */
+    .track-crypto-heading,
+    .real-time-heading{
+        font-size: 9vw;
+        margin: 0;
+    }
+
+    /* --------- track-crypto-heading ------- */
+    .track-crypto-heading{
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: var(--white);
+    }
+
+    /* --------- .info-text ------- */
+    .info-text{
+        font-size: 2.3vw;
+    }
+
+    /* --------- .btn-flex ----------- */
+    .btn-flex{
+        /* border: 2px solid; */
+        justify-content: center;
+    }
+
+    /* --------- left-component --------- */
+    .left-component{
+        width: 100%;
+        text-align: center;
+        /* margin-top: 1rem; */
+    }
+
+        /* ------ phone-container ------ */
+        .phone-container{
+            width: 100%;
+        }
+    
+        /* ------- iphone ------- */
+        .iphone{
+            min-width: 80px;
+            width: 40vw;
+            /* left:23vw; */
+        }
+    
+    
+        /* ------- gradient ------- */
+        .gradient{
+            width: 35vw;
+            min-width: 105px;
+            top: 5rem;
+            /* left:32vw; */
+        }
+
+}
+
+
+
+@media only screen and (max-width:451px) {
+    /* ------ track-crypto-heading AND  real-time-heading-------- */
+    .track-crypto-heading,
+    .real-time-heading{
+        font-size: 10vw;
+        margin: 0;
+    }
+
+    /* --------- track-crypto-heading ------- */
+    .track-crypto-heading{
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: var(--white);
+    }
+
+    /* --------- .info-text ------- */
+    .info-text{
+        font-size: 3.4vw;
+    }
+}
