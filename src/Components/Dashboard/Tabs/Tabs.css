@@ -1,0 +1,32 @@
+
+/* -------- grid-flex --------- */
+.grid-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1rem;
+    margin: 1.5rem 2rem;
+}
+
+/* ---------- list-table ------- */
+.list-table{
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+
+
+/* ########### Media Quries ############### */
+@media only screen and (max-width:1210px){
+    .list-table{
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width:800px){
+    .list-table{
+        width: 100%;
+    }
+}

@@ -1,0 +1,150 @@
+
+/* ---------- grid-container --------- */
+.grid-container{
+    width: 18rem;
+    height: 18rem;
+    background-color: var(--dark-grey);
+    border: 2px solid var(--dark-grey);
+    border-radius: .75rem;
+    transition: all .3s ease-in-out;
+}
+
+.grid-container:hover{
+    border-color: var(--green);
+}
+
+/* ------------ grid-container-red ----------- */
+.grid-container-red:hover{
+    border-color: var(--red);
+}
+
+/* ----------- info-flex ----------- */
+.info-flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:1rem;
+    margin:1.5rem;
+}
+
+/* ------------- coin-logo ----------- */
+.coin-logo{
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+/* ------------ name-col ------------- */
+.name-col{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+/* ------------ coin-symbol ---------- */
+.coin-symbol{
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* ------------ coin-name ------------ */
+.coin-name{
+    color: var(--grey);
+    text-transform: capitalize;
+    font-weight: light;
+    font-size: 1rem;
+    margin: 0;
+}
+
+
+
+/* ------------ chip-flex ------------- */
+.chip-flex{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 1.5rem;
+}
+
+/* ----------- price-chip ------------ */
+.price-chip{
+    color: var(--green);
+    border: 2px solid var(--green);
+    border-radius: 2rem;
+    padding: .35rem 1.25rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all .3s ease-in-out;
+    min-width: 5rem;
+}
+
+.price-chip:hover{
+    background-color: var(--green);
+    color: var(--white);
+}
+
+/* ------------ chip-red ------------- */
+.chip-red{
+    color: var(--red);
+    border: 2px solid var(--red);
+    transition: all .3s ease-in-out;
+}
+
+.chip-red:hover{
+    background-color: var(--red);
+    color: var(--white);
+}
+
+/* ------------- icon-chip -------------- */
+.icon-chip{
+    color: var(--green);
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: .25rem;
+    transition: all .3s ease-in-out;
+}
+
+.icon-chip:hover{
+    background-color: var(--green);
+    color: var(--white);
+}
+
+/* ------------- icon-chip-red ------------- */
+.icon-chip-red{
+    color: var(--red);
+    border: 2px solid var(--red);
+}
+
+.icon-chip-red:hover{
+    background-color: var(--red);
+    color: var(--white);
+}
+
+
+
+/* ------------ info-container --------------- */
+.info-container{
+    margin: 1.5rem;
+}
+
+/* ----------- coin-price ------------ */
+.coin-price{
+    color: var(--green);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ------------ total-volume ----------- */
+.total-volume{
+    color: var(--grey);
+    font-size: 1rem;
+    font-weight: 500;
+}
