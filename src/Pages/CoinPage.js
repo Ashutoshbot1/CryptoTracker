@@ -17,12 +17,13 @@ const CoinPage = () => {
 
   // Searching Details On Loading
   useEffect(() => {
-    getData();
+    // getData();
   }, [id]);
 
   // Get Data Function
-  async function getData(id) {
+  async function getData() {
     const data = await getCoinData(id);
+    console.log(data)
     if (data) {
       coinObject(setCoinData, data);
       const prices = await getCoinPrices(id, days);

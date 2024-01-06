@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getCoinPrices = ({ id, days }) => {
+export const getCoinPrices = ( id, days ) => {
   const mrk_url = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}`;
 
   const prices = axios

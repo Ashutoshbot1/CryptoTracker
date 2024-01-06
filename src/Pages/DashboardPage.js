@@ -6,7 +6,6 @@ import Search from "../Components/Dashboard/Search/Search";
 import Pagination from "../Components/Dashboard/Pagination/Pagination";
 import Loader from "../Components/Common/Loader/Loader";
 import BackToTop from "../Components/Common/BackToTop/BackToTop";
-import { Tooltip } from "@mui/material";
 
 const DashboardPage = () => {
   const [coins, setCoins] = useState([]);
@@ -20,18 +19,18 @@ const DashboardPage = () => {
     const url =
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en";
 
-    // axios
-    //   .get(url)
-    //   .then((response) => {
-    //     console.log("Coins From Dashboard", response);
-    //     setCoins(response.data);
-    //     setPaginatedCoins(response.data.slice(0, 10));
-    //     setIsLoading(false);
-    //   })
-    //   .catch((err) => {
-    //     console.log("Fetching Coin error", err);
-    //     setIsLoading(false);
-    //   });
+    axios
+      .get(url)
+      .then((response) => {
+        console.log("Coins From Dashboard", response);
+        setCoins(response.data);
+        setPaginatedCoins(response.data.slice(0, 10));
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log("Fetching Coin error", err);
+        setIsLoading(false);
+      });
   }, []);
 
   // onSearchChange Function
