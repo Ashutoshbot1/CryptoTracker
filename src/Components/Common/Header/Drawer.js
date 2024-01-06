@@ -8,7 +8,7 @@ export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
+    <div style={{zIndex:"3000"}}>
       <IconButton onClick={() => setOpen(true)}>
         <MenuRoundedIcon className="link" />
       </IconButton>

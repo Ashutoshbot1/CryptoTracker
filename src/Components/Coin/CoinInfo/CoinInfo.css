@@ -1,0 +1,18 @@
+/* ----------- coin-info-description coin-info-heading ------------- */
+.coin-info-heading{
+    margin: 1rem;
+}
+
+.coin-info-description{
+    cursor: pointer;
+}
+
+.coin-info-description span{
+    color: var(--blue);
+    transition: all .3s ease-in-out;
+    font-weight: 700;
+}
+
+.coin-info-description span:hover{
+    color: var(--grey);
+}

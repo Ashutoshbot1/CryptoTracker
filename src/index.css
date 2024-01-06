@@ -10,6 +10,11 @@
   --red:#f94141;
 }
 
+/* ------- html --------- */
+html{
+  scroll-behavior: smooth;
+}
+
 /* ------- BODY ------ */
 
 body {
@@ -64,3 +69,34 @@ a{
 a.active{
   color: var(--blue);
 }
+
+
+/* ############ coinPage coinInfo ############# */
+
+/* --------- grey-wrapper--------- */
+.grey-wrapper{
+  display: block;
+  width: 90%;
+  margin: 1.5rem auto;
+  padding: 0rem 1rem;
+  background-color: var(--dark-grey);
+  margin: 1.5rem auto;
+  border-radius: .8rem;
+}
+
+
+
+/* ############ coinInfo ############# */
+
+
+/* ------------- coin-info-description a ---------- */
+.coin-info-description a{
+  text-decoration: underline;
+  transition: all .3s ease-in-out;
+}
+
+.coin-info-description a:hover{
+  color: var(--blue);
+}
+
+
