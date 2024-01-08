@@ -78,7 +78,7 @@ a.active{
   display: block;
   width: 90%;
   margin: 1.5rem auto;
-  padding: 0rem 1rem;
+  padding: 1rem 1rem;
   background-color: var(--dark-grey);
   margin: 1.5rem auto;
   border-radius: .8rem;
@@ -97,6 +97,19 @@ a.active{
 
 .coin-info-description a:hover{
   color: var(--blue);
+}
+
+
+
+/* ########### CconparePage ########## */
+
+/* ------------- coins-days-flex ----------- */
+.coins-days-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem;
+  gap: 2rem;
 }
 
 

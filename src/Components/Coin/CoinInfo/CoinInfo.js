@@ -16,7 +16,7 @@ const CoinInfo = ({ heading, desc }) => {
   }
 
   return (
-    <div className="grey-wrapper">
+    <div className="grey-wrapper" style={{ padding: "0rem 1rem" }}>
       <h2 className="coin-info-heading">{heading}</h2>
       {desc.length > 350 ? (
         <p
