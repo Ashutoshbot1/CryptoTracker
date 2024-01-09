@@ -4,8 +4,11 @@ import Button from "../../Common/Button/Button";
 import iphone from "../../../assets/phone 1.png";
 import gradient from "../../../assets/gradient 1.png";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { RWebShare } from "react-web-share";
 
 const MainComponent = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex-info">
       <div className="left-component">
@@ -40,8 +43,15 @@ const MainComponent = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 1.5 }}
         >
-          <Button text={"Dashboard"} />
-          <Button text={"Share"} outlined={true} />
+          <Button
+            text={"Dashboard"}
+            onClick={() => {
+              navigate("/dashboard");
+            }}
+          />
+          <RWebShare data={{text:"Web Share - CryptoTracker",url: "http://localhost:3000", title:"CryptoTracker App"}}>
+            <Button text={"Share"} outlined={true} />
+          </RWebShare>
         </motion.div>
       </div>
 
