@@ -16,7 +16,7 @@ const DashboardPage = () => {
 
   // Getting Coins on Page Load
   useEffect(() => {
-    // getData();
+    getData();
   }, []);
 
   // get data function

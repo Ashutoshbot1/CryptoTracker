@@ -1,6 +1,8 @@
 import React from "react";
 import "./Share.css";
+import { Tooltip } from "@mui/material";
 import HighlightOffRoundedIcon from "@mui/icons-material/HighlightOffRounded";
+import { motion } from "framer-motion";
 import {
   EmailShareButton,
   WhatsappShareButton,
@@ -21,41 +23,106 @@ import {
 const Share = ({ display, setDisplay }) => {
   const url = window.location.href;
   return (
-    <div className="share-wrapper" style={{display:display}}>
+    <div className="share-wrapper" style={{ display: display }}>
       <div className="share-buttons">
-        <div className="cancel-btn" onClick={()=>setDisplay("none")}>
-          <HighlightOffRoundedIcon />
+        <div className="cancel-btn" onClick={() => setDisplay("none")}>
+          <Tooltip title="Close">
+            <HighlightOffRoundedIcon />
+          </Tooltip>
         </div>
-        <div className="mail share-button" onClick={()=>setDisplay("none")}>
+        <motion.div 
+        initial={{ x: -3 }}
+        animate={{ x: 3 }}
+        transition={{
+          type: "smooth",
+          repeatType: "mirror",
+          duration: 2,
+          repeat: Infinity,
+        }}
+        className="mail share-button"
+         onClick={() => setDisplay("none")}>
           <EmailShareButton url={url}>
             <EmailIcon />
           </EmailShareButton>
-        </div>
-        <div className="fb share-button" onClick={()=>setDisplay("none")}>
+        </motion.div>
+        <motion.div 
+        initial={{ x: -3 }}
+        animate={{ x: 3 }}
+        transition={{
+          type: "smooth",
+          repeatType: "mirror",
+          duration: 2,
+          repeat: Infinity,
+        }}
+        className="mail share-button"
+         onClick={() => setDisplay("none")}>
           <FacebookShareButton url={url}>
             <FacebookIcon />
           </FacebookShareButton>
-        </div>
-        <div className="whatsapp share-button" onClick={()=>setDisplay("none")}>
-          <WhatsappShareButton url={url} title="Check out this awesome crypto-tracker webapp, made by Ashutosh Singh">
+        </motion.div>
+        <motion.div 
+        initial={{ x: -3 }}
+        animate={{ x: 3 }}
+        transition={{
+          type: "smooth",
+          repeatType: "mirror",
+          duration: 2,
+          repeat: Infinity,
+        }}
+        className="mail share-button"
+         onClick={() => setDisplay("none")}>
+          <WhatsappShareButton
+            url={url}
+            title="Check out this awesome crypto-tracker webapp, made by Ashutosh Singh"
+          >
             <WhatsappIcon />
           </WhatsappShareButton>
-        </div>
-        <div className="in share-button" onClick={()=>setDisplay("none")}>
+        </motion.div>
+        <motion.div 
+        initial={{ x: -3 }}
+        animate={{ x: 3 }}
+        transition={{
+          type: "smooth",
+          repeatType: "mirror",
+          duration: 2,
+          repeat: Infinity,
+        }}
+        className="mail share-button"
+         onClick={() => setDisplay("none")}>
           <LinkedinShareButton url={url}>
             <LinkedinIcon />
           </LinkedinShareButton>
-        </div>
-        <div className="twit share-button" onClick={()=>setDisplay("none")}>
+        </motion.div>
+        <motion.div 
+        initial={{ x: -3 }}
+        animate={{ x: 3 }}
+        transition={{
+          type: "smooth",
+          repeatType: "mirror",
+          duration: 2,
+          repeat: Infinity,
+        }}
+        className="mail share-button"
+         onClick={() => setDisplay("none")}>
           <TwitterShareButton url={url}>
             <TwitterIcon />
           </TwitterShareButton>
-        </div>
-        <div className="tele share-button" onClick={()=>setDisplay("none")}>
+        </motion.div>
+        <motion.div 
+        initial={{ x: -3 }}
+        animate={{ x: 3 }}
+        transition={{
+          type: "smooth",
+          repeatType: "mirror",
+          duration: 2,
+          repeat: Infinity,
+        }}
+        className="mail share-button"
+         onClick={() => setDisplay("none")}>
           <TelegramShareButton url={url}>
             <TelegramIcon />
           </TelegramShareButton>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -6,34 +6,29 @@
     left:0;
     right: 0;
     bottom: 0px;
-    /* width: 25vw;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
     height: 40vh;
     padding: 1rem;
     border-radius: 2rem;
     z-index:10000;
+    transition: all 1s ease-in-out;
 }
 .cancel-btn{
     /* border: 2px solid white; */
     width: 100%;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-
-.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
-    /* border: 2px solid white; */
-    width: 100%;
-    font-size: 40px;
-    color: var(--grey);
-    transition: all .3s ease-in-out;
-    
-}
-.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root:hover{
+.cancel-btn svg{
     color: var(--blue);
+    font-size: 40px;
+    transition: all .3s ease-in-out;
 }
- /* MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root */ 
+.cancel-btn svg:hover{
+    color: var(--red);
+}
+
+
 
 /* ----------- share-buttons ------------- */
 .share-buttons{
@@ -52,11 +47,14 @@
     height: 4rem;
     width: 4rem;
     opacity: .7;
-    transition: all .3s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 .react-share__ShareButton svg:hover{
     opacity: 1;
+    transform:  scale(1.2) rotate(360deg);
+    /* transform: scaleX(1.5); */
+
 }
 
 
@@ -74,7 +72,7 @@
     }
 }
 
-.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+.cancel-btn svg {
     font-size: 2.5rem;
     
 }

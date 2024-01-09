@@ -2,6 +2,7 @@ import React from "react";
 import "./Grid.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
+import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
 import { Link } from "react-router-dom";
 
 const Grid = ({ coin, key }) => {
@@ -18,6 +19,7 @@ const Grid = ({ coin, key }) => {
             <p className="coin-symbol">{coin.symbol}</p>
             <p className="coin-name">{coin.name}</p>
           </div>
+          <div className="watchlist-icon"><StarsRoundedIcon/></div>
         </div>
 
         {coin.price_change_percentage_24h > 0 ? (

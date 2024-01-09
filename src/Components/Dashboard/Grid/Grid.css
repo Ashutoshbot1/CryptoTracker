@@ -58,6 +58,13 @@
     margin: 0;
 }
 
+/* ----------- watchlist-icon ----------- */
+.watchlist-icon{
+    /* border: 2px solid white; */
+    margin-left: 2rem;
+    color: var(--green);
+}
+
 
 
 /* ------------ chip-flex ------------- */

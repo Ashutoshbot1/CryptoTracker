@@ -2,13 +2,15 @@ import React from "react";
 import "./Header.css";
 import TemporaryDrawer from "./Drawer";
 import Button from "../Button/Button";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div className="navbar">
-      <h1 className="logo">
-        CryptoTracker <span style={{ color: "var(--blue)" }}>.</span>
-      </h1>
+      <Link to="/">
+        <h1 className="logo">
+          CryptoTracker <span style={{ color: "var(--blue)" }}>.</span>
+        </h1>
+      </Link>
       <div className="links">
         <NavLink to="/">
           <p className="link">Home</p>
@@ -20,7 +22,7 @@ const Header = () => {
           <p className="link">Watchlist</p>
         </NavLink>
         <NavLink to="/dashboard">
-          <Button text={"Dashboard"} onClick={()=>console.log("cli")}/>
+          <Button text={"Dashboard"} onClick={() => console.log("cli")} />
         </NavLink>
       </div>
 
