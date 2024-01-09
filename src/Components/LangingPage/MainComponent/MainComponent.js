@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MainComponent.css";
 import Button from "../../Common/Button/Button";
 import iphone from "../../../assets/phone 1.png";
 import gradient from "../../../assets/gradient 1.png";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { RWebShare } from "react-web-share";
+import Share from "../ShareComponent/Share";
 
 const MainComponent = () => {
   const navigate = useNavigate();
+  const currPageUrl = window.location.href;
+  const [display, setDisplay] = useState("none");
+
+  // handle toggle share
+  function toggleShare() {
+    console.log("toggle executed");
+    setDisplay(display === "none" ? "block" : "none");
+    console.log(display);
+  }
+
   return (
     <div className="flex-info">
       <div className="left-component">
@@ -49,9 +60,9 @@ const MainComponent = () => {
               navigate("/dashboard");
             }}
           />
-          <RWebShare data={{text:"Web Share - CryptoTracker",url: "http://localhost:3000", title:"CryptoTracker App"}}>
-            <Button text={"Share"} outlined={true} />
-          </RWebShare>
+          <Button text={"Share"} outlined={true} onClick={toggleShare} />
+
+          <Share setDisplay={setDisplay} display={display} />
         </motion.div>
       </div>
 
