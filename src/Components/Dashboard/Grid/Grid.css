@@ -25,6 +25,7 @@
     align-items: center;
     gap:1rem;
     margin:1.5rem;
+    position: relative;
 }
 
 /* ------------- coin-logo ----------- */
@@ -56,13 +57,6 @@
     font-weight: light;
     font-size: 1rem;
     margin: 0;
-}
-
-/* ----------- watchlist-icon ----------- */
-.watchlist-icon{
-    /* border: 2px solid white; */
-    margin-left: 2rem;
-    color: var(--green);
 }
 
 
@@ -155,3 +149,32 @@
     font-size: 1rem;
     font-weight: 500;
 }
+
+/* ----------- watchlist-icon ------------- */
+.watchlist-icon{
+    /* border:2px solid; */
+    position: absolute;
+    right: 0;
+    top:6px;
+    z-index: 100;
+}
+
+.watchlist-icon svg{
+    font-size: 2.1rem;
+    color: var(--grey);
+    transition: all .3s ease-in-out;
+    
+}
+
+.watchlist-icon-green svg{
+    color: var(--green);
+}
+
+.watchlist-icon-red svg{
+    color: var(--red);
+}
+
+.watchlist-icon svg:hover{
+    transform: scale(1.2);
+}
+

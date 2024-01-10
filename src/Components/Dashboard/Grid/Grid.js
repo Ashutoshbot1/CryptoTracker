@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Grid.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
-import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
-import { Link } from "react-router-dom";
+import StarsRoundedIcon from "@mui/icons-material/StarsRounded";
+import { Link} from "react-router-dom";
+import { watchlistToggle } from "../../../functions/watchlistToggle";
+import { toast } from "react-toastify";
 
 const Grid = ({ coin, key }) => {
+
+  function handleWatchlistToggle(coin){
+    watchlistToggle(coin);
+  }
   return (
     <Link to={`/coin/${coin.id}`}>
       <div
+        key={key}
         className={`grid-container ${
           coin.price_change_percentage_24h < 0 && "grid-container-red"
         }`}
@@ -19,8 +26,24 @@ const Grid = ({ coin, key }) => {
             <p className="coin-symbol">{coin.symbol}</p>
             <p className="coin-name">{coin.name}</p>
           </div>
-          <div className="watchlist-icon"><StarsRoundedIcon/></div>
+          <Link to={`${window.location.href}`}>
+          <div
+            className={`watchlist-icon ${
+              coin.price_change_percentage_24h < 0 &&
+              coin.watch &&
+              "watchlist-icon-red"
+            } ${
+              coin.price_change_percentage_24h > 0 &&
+              coin.watch &&
+              "watchlist-icon-green"
+            }`}
+            onClick={() => handleWatchlistToggle(coin)}
+          >
+            <StarsRoundedIcon />
+          </div>
+          </Link>
         </div>
+        
 
         {coin.price_change_percentage_24h > 0 ? (
           <div className="chip-flex">
