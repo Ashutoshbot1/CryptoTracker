@@ -3,7 +3,7 @@ import "./MainComponent.css";
 import Button from "../../Common/Button/Button";
 import iphone from "../../../assets/phone 1.png";
 import gradient from "../../../assets/gradient 1.png";
-import { motion, useScroll } from "framer-motion";
+import { motion} from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { RWebShare } from "react-web-share";
 import Share from "../ShareComponent/Share";

@@ -12,6 +12,7 @@ import LineChart from "../Components/Coin/LineChart/LineChart";
 import { settingChartData } from "../functions/settingChartData";
 import SelectDays from "../Components/Coin/SelectDays/SelectDays";
 import GraphToggle from "../Components/Coin/GraphToggle/GraphToggle";
+import ApiError from "../Components/Common/ApiError/ApiError";
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -20,15 +21,16 @@ const CoinPage = () => {
   const [days, setDays] = useState(30);
   const [chartData, setChartData] = useState({});
   const [graphType, setGraphType] = useState("prices");
+  const [apiError,setApiError]=useState(false);
 
   // Searching Details On Loading
   useEffect(() => {
-    // getData();
+    getData();
   }, [id]);
 
   // Get Data Function
   async function getData() {
-    const data = await getCoinData(id);
+    const data = await getCoinData(id,setApiError);
     if (data) {
       coinObject(setCoinData, data);
       const prices = await getCoinPrices(id, days, graphType);
@@ -43,7 +45,7 @@ const CoinPage = () => {
   const handleDaysChange = async (event) => {
     setIsLoading(true);
     setDays(event.target.value);
-    const prices = await getCoinPrices(id, event.target.value, graphType);
+    const prices = await getCoinPrices(id, event.target.value, graphType,setApiError,setIsLoading);
     if (prices.length > 0) {
       settingChartData(setChartData, prices);
       setIsLoading(false);
@@ -68,6 +70,15 @@ const CoinPage = () => {
         <Loader />
       </div>
     );
+  }
+
+  if(apiError){
+    return(
+      <div>
+        <Header/>
+        <ApiError/>
+      </div>
+    )
   }
   return (
     <div>

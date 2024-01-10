@@ -3,7 +3,7 @@ import { get100Coins } from "../../../functions/get100Coins";
 import { MenuItem, Select } from "@mui/material";
 import './SelectCoins.css';
 
-const SelectCoins = ({crypto1,crypto2,handleCoinChange}) => {
+const SelectCoins = ({crypto1,crypto2,handleCoinChange,setIsloading,setApiError}) => {
   const [allCoins, setAllCoins] = useState([]);
 
   // Styles obj

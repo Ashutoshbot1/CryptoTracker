@@ -5,7 +5,8 @@ import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import StarsRoundedIcon from "@mui/icons-material/StarsRounded";
 import { Link} from "react-router-dom";
 import { watchlistToggle } from "../../../functions/watchlistToggle";
-import { toast } from "react-toastify";
+import { motion} from "framer-motion";
+// import { toast } from "react-toastify";
 
 const Grid = ({ coin, key }) => {
 

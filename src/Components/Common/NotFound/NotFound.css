@@ -1,0 +1,36 @@
+.not-found-wrapper{
+    /* border:2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-find-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-find-container p{
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 0;
+
+}
+
+
+/* ############# Media Quries ############ */
+
+@media screen and (max-width:500px) {
+    .not-find-container p{
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width:300px){
+    .not-find-container p{
+        font-size: 2rem;
+    }
+}
+

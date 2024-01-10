@@ -6,6 +6,8 @@ import Pagination from "../Components/Dashboard/Pagination/Pagination";
 import Loader from "../Components/Common/Loader/Loader";
 import BackToTop from "../Components/Common/BackToTop/BackToTop";
 import { get100Coins } from "../functions/get100Coins";
+import ApiError from "../Components/Common/ApiError/ApiError";
+import NotFound from "../Components/Common/NotFound/NotFound";
 
 const DashboardPage = () => {
   const [coins, setCoins] = useState([]);
@@ -13,6 +15,7 @@ const DashboardPage = () => {
   const [page, setPage] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [apiError,setApiError]=useState(false);
 
   // Getting Coins on Page Load
   useEffect(() => {
@@ -21,7 +24,7 @@ const DashboardPage = () => {
 
   // get data function
   async function getData() {
-    const myCoins = await get100Coins();
+    const myCoins = await get100Coins(setApiError,setIsLoading);
     if (myCoins) {
       setCoins(myCoins);
       setPaginatedCoins(myCoins.slice(0, 10));
@@ -41,12 +44,15 @@ const DashboardPage = () => {
       coin.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Handle Page Change
-  const handlePageChange = (event, value) => {
+
+
+  const handlePageChange = (event, value)=>{
     setPage(value);
-    const initialValue = (page - 1) * 10;
+    const initialValue = (value - 1) * 10;
     setPaginatedCoins(coins.slice(initialValue, initialValue + 10));
-  };
+    // console.log(event,value,initialValue);
+  }
+
 
   // Handling Page Loading
   if (isLoading) {
@@ -56,6 +62,15 @@ const DashboardPage = () => {
         <Loader />
       </div>
     );
+  }
+
+  if(apiError){
+    return(
+      <div>
+        <Header/>
+        <ApiError/>
+      </div>
+    )
   }
 
   return (
@@ -69,6 +84,10 @@ const DashboardPage = () => {
           handlePageChange={(event, value) => handlePageChange(event, value)}
         />
       )}
+
+      {
+        search && !filteredCoins.length && <NotFound setSearch={setSearch}/>
+      }
 
       <BackToTop />
     </div>
