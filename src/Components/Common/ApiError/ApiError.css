@@ -14,7 +14,12 @@
 .message-container{
     /* border:2px solid white; */
     transform: translate(0%,-50%);
-    margin-top: -200px;
+    margin-top: -290px;
     font-size: 1.5rem;
     color: var(--blue);
+}
+
+.btn-abs{
+    position: absolute;
+    margin-top: -7rem;
 }
