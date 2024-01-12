@@ -3,7 +3,7 @@ import "./ApiError.css";
 import Button from "../Button/Button";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import TypeAnimation from "../TypeAnimation/TypeAnimation";
+// import TypeAnimation from "../TypeAnimation/TypeAnimation";
 
 
 const ApiError = () => {
@@ -37,7 +37,7 @@ const ApiError = () => {
   return (
     <div className="api-wrapper">
       <div className="message-container">
-        <TypeAnimation/>
+        
       </div>
 
       <div className="btn-flex btn-abs">
