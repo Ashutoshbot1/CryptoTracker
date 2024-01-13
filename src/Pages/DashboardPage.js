@@ -16,6 +16,7 @@ const DashboardPage = () => {
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [apiError,setApiError]=useState(false);
+  
 
   // Getting Coins on Page Load
   useEffect(() => {

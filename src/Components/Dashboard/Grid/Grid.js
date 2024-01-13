@@ -4,14 +4,25 @@ import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import StarsRoundedIcon from "@mui/icons-material/StarsRounded";
 import { Link} from "react-router-dom";
-import { watchlistToggle } from "../../../functions/watchlistToggle";
-import { motion} from "framer-motion";
-// import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addWatchlist } from "../../../store/slices/WatchlistSlice";
+import { deleteWatchlist } from "../../../store/slices/WatchlistSlice";
+
+
 
 const Grid = ({ coin, key }) => {
+  const watchlistCoins=useSelector(state=>state.watchlist);
+  const dispatch=useDispatch();
 
+  // Toggle Watchlist Function
   function handleWatchlistToggle(coin){
-    watchlistToggle(coin);
+    if(watchlistCoins.includes(coin.id)){
+      dispatch(deleteWatchlist(coin.id));
+    }
+    else{
+      dispatch(addWatchlist(coin.id));
+    }
   }
   return (
     <Link to={`/coin/${coin.id}`}>
@@ -31,11 +42,11 @@ const Grid = ({ coin, key }) => {
           <div
             className={`watchlist-icon ${
               coin.price_change_percentage_24h < 0 &&
-              coin.watch &&
+              watchlistCoins.includes(coin.id) &&
               "watchlist-icon-red"
             } ${
               coin.price_change_percentage_24h > 0 &&
-              coin.watch &&
+              watchlistCoins.includes(coin.id) &&
               "watchlist-icon-green"
             }`}
             onClick={() => handleWatchlistToggle(coin)}

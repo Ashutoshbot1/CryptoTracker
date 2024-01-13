@@ -8,7 +8,7 @@ export const get100Coins= async(setApiError,setIsLoading)=>{
     const myCoins=axios
       .get(url)
       .then((response) => {
-        console.log("get100Coins", response);
+        // console.log("get100Coins", response);
         return response.data;
       })
       .catch((err) => {

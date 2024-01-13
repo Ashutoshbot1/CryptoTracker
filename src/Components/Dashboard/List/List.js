@@ -1,12 +1,30 @@
 import React from "react";
 import "./List.css";
+// import "../Grid/Grid.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
+import StarsRoundedIcon from "@mui/icons-material/StarsRounded";
 import { Tooltip } from "@mui/material";
 import { convertNumbers } from "../../../functions/conterNumbers";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addWatchlist } from "../../../store/slices/WatchlistSlice";
+import { deleteWatchlist } from "../../../store/slices/WatchlistSlice";
 
 const List = ({ coin }) => {
+  const watchlistCoins = useSelector((state) => state.watchlist);
+  const dispatch = useDispatch();
+
+  // Toggle Watchlist Function
+  function handleWatchlistToggle(coin) {
+    if (watchlistCoins.includes(coin.id)) {
+      dispatch(deleteWatchlist(coin.id));
+    } else {
+      dispatch(addWatchlist(coin.id));
+    }
+  }
+
   return (
     <Link to={`/coin/${coin.id}`}>
       <tr className="list-row">
@@ -82,6 +100,26 @@ const List = ({ coin }) => {
             <p className="total-volume td-right-align">
               {convertNumbers(coin.market_cap)}
             </p>
+          </td>
+        </Tooltip>
+        <Tooltip title="Add to watchlist" placement="bottom-end">
+          <td>
+            <Link to={`${window.location.href}`}>
+              <div
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 &&
+                  watchlistCoins.includes(coin.id) &&
+                  "watchlist-icon-red"
+                } ${
+                  coin.price_change_percentage_24h > 0 &&
+                  watchlistCoins.includes(coin.id) &&
+                  "watchlist-icon-green"
+                }`}
+                onClick={() => handleWatchlistToggle(coin)}
+              >
+                <StarsRoundedIcon />
+              </div>
+            </Link>
           </td>
         </Tooltip>
       </tr>

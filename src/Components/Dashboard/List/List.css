@@ -46,6 +46,16 @@ td.td-image{
     display: none;
 }
 
+td{
+    position: relative;
+}
+
+/* --------------- watchlist-icon -------------- */
+td .watchlist-icon{
+    position: absolute;
+    top:-13px;
+}
+
 
 
 
