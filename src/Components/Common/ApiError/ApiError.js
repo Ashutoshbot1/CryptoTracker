@@ -3,8 +3,8 @@ import "./ApiError.css";
 import Button from "../Button/Button";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 // import TypeAnimation from "../TypeAnimation/TypeAnimation";
-
 
 const ApiError = () => {
   const [count, setCount] = useState(65);
@@ -37,7 +37,18 @@ const ApiError = () => {
   return (
     <div className="api-wrapper">
       <div className="message-container">
-        
+        <TypeAnimation
+          sequence={[
+            "Coin Gecko API Error 🚫",1000,
+            "My WebApp is Innocent 🥺",1000,
+            "Coin Gecko API Subscription is Too Costly💲",1000,
+            "Im Poor! 😞",1000
+          ]}
+          style={{ fontSize: "1.5rem", transition:"all .3s" }}
+          repeat={Infinity}
+          speed={{type: 'keyStrokeDelayInMs', value: 120}}
+          deletionSpeed={10}
+        />
       </div>
 
       <div className="btn-flex btn-abs">
