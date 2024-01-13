@@ -1,0 +1,26 @@
+.emptyList-container{
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
+}
+
+.message{
+    color: var(--blue);
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+
+
+/* ############### Media Quries ############# */
+
+@media screen and (max-width:400px) {
+    .message{
+        color: var(--blue);
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+}

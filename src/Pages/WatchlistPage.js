@@ -6,6 +6,8 @@ import { get100Coins } from "../functions/get100Coins";
 import { useSelector } from "react-redux";
 import Loader from "../Components/Common/Loader/Loader";
 import ApiError from "../Components/Common/ApiError/ApiError";
+import EmptyList from "../Components/Watchlist/EmptyList";
+import NotFound from "../Components/Common/NotFound/NotFound";
 
 const WatchlistPage = () => {
   const [search, setSearch] = useState("");
@@ -13,7 +15,6 @@ const WatchlistPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [apiError, setApiError] = useState(false);
   const watchlistCoins = useSelector((state) => state.watchlist);
-  // console.log(watchlistCoins);
 
   // Onloading
   useEffect(() => {
@@ -24,8 +25,10 @@ const WatchlistPage = () => {
   async function getData() {
     setIsLoading(true);
     const allCoins = await get100Coins(setApiError, setIsLoading);
-    setCoins(allCoins.filter((coin) => watchlistCoins.includes(coin.id)));
-    setIsLoading(false);
+    if (allCoins) {
+      setCoins(allCoins.filter((coin) => watchlistCoins.includes(coin.id)));
+      setIsLoading(false);
+    }
   }
 
   // onSearchChange Function
@@ -63,6 +66,8 @@ const WatchlistPage = () => {
       <Header />
       <Search search={search} onSearchChange={onSearchChange} />
       <Tabs coins={filteredCoins} />
+      {coins.length <= 0 && <EmptyList />}
+      {search && !filteredCoins.length && <NotFound setSearch={setSearch} />}
     </div>
   );
 };

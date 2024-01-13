@@ -33,7 +33,7 @@ const SelectCoins = ({crypto1,crypto2,handleCoinChange,setIsloading,setApiError}
 
   // getData Function
   async function getData() {
-    const myCoins = await get100Coins();
+    const myCoins = await get100Coins(setApiError,setIsloading);
     setAllCoins(myCoins);
   }
 

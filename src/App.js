@@ -23,8 +23,7 @@ function App() {
   }, []);
 
 
-  dispatch(addWatchlist("bitcoin"));
-  // dispatch(deleteWatchlist("bitcoin"));
+
 
   return (
     <div className="App">
