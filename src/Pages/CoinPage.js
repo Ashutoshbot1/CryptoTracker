@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../Components/Common/Header/Header";
-import axios from "axios";
 import Loader from "../Components/Common/Loader/Loader";
 import { coinObject } from "../functions/coinObject";
 import List from "../Components/Dashboard/List/List";
@@ -30,10 +29,10 @@ const CoinPage = () => {
 
   // Get Data Function
   async function getData() {
-    const data = await getCoinData(id,setApiError);
+    const data = await getCoinData(id,setApiError,setIsLoading);
     if (data) {
       coinObject(setCoinData, data);
-      const prices = await getCoinPrices(id, days, graphType);
+      const prices = await getCoinPrices(id, days, graphType,setApiError,setIsLoading);
       if (prices.length > 0) {
         settingChartData(setChartData, prices);
         setIsLoading(false);
@@ -56,7 +55,7 @@ const CoinPage = () => {
   const handleGraphToggle = async (event, newGraphType) => {
     setIsLoading(true);
     setGraphType(newGraphType);
-    const prices = await getCoinPrices(id, days, newGraphType);
+    const prices = await getCoinPrices(id, days, newGraphType,setApiError,setIsLoading);
     if (prices.length > 0) {
       settingChartData(setChartData, prices);
       setIsLoading(false);
