@@ -46,10 +46,11 @@ const ComparePage = () => {
         // console.log("price1 received", prices1); //clg
         const prices2 = await getCoinPrices(crypto2, days, graphType,setApiError,setIsLoading);
         // console.log("price2 received", prices2); //clg
-        settingChartData(setChartData, prices1, prices2);
+        settingChartData(setChartData, prices1, prices2,setIsLoading);
         setIsLoading(false);
       }
     }
+    // setIsLoading(false);
   }
 
   // Handle Days Change Function
@@ -60,7 +61,7 @@ const ComparePage = () => {
     console.log("prices1 of daysChange",prices1);
     const prices2 = await getCoinPrices(crypto2,event.target.value,graphType,setApiError,setIsLoading);
     console.log("prices2 of daysChange",prices2);
-    settingChartData(setChartData, prices1, prices2);
+    settingChartData(setChartData, prices1, prices2,setIsLoading);
     setIsLoading(false);
   }
 
@@ -74,12 +75,19 @@ const ComparePage = () => {
       const prices1 = await getCoinPrices(crypto1, days, graphType,setApiError,setIsLoading);
       const prices2 = await getCoinPrices(crypto2, days, graphType,setApiError,setIsLoading);
       if (prices1.length > 0 && prices2.length > 0) {
+        settingChartData(setChartData, prices1, prices2,setIsLoading);
         setIsLoading(false);
       }
     } else {
       setCrypto2(event.target.value);
       const data = await getCoinData(event.target.value,setApiError,setIsLoading);
       coinObject(setCrypto2Data, data);
+      const prices1 = await getCoinPrices(crypto1, days, graphType,setApiError,setIsLoading);
+      const prices2 = await getCoinPrices(crypto2, days, graphType,setApiError,setIsLoading);
+      if (prices1.length > 0 && prices2.length > 0) {
+        settingChartData(setChartData, prices1, prices2,setIsLoading);
+        setIsLoading(false);
+      }
     }
   };
 

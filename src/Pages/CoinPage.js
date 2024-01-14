@@ -20,7 +20,7 @@ const CoinPage = () => {
   const [days, setDays] = useState(30);
   const [chartData, setChartData] = useState({});
   const [graphType, setGraphType] = useState("prices");
-  const [apiError,setApiError]=useState(false);
+  const [apiError, setApiError] = useState(false);
 
   // Searching Details On Loading
   useEffect(() => {
@@ -29,10 +29,16 @@ const CoinPage = () => {
 
   // Get Data Function
   async function getData() {
-    const data = await getCoinData(id,setApiError,setIsLoading);
+    const data = await getCoinData(id, setApiError, setIsLoading);
     if (data) {
       coinObject(setCoinData, data);
-      const prices = await getCoinPrices(id, days, graphType,setApiError,setIsLoading);
+      const prices = await getCoinPrices(
+        id,
+        days,
+        graphType,
+        setApiError,
+        setIsLoading
+      );
       if (prices.length > 0) {
         settingChartData(setChartData, prices);
         setIsLoading(false);
@@ -44,7 +50,13 @@ const CoinPage = () => {
   const handleDaysChange = async (event) => {
     setIsLoading(true);
     setDays(event.target.value);
-    const prices = await getCoinPrices(id, event.target.value, graphType,setApiError,setIsLoading);
+    const prices = await getCoinPrices(
+      id,
+      event.target.value,
+      graphType,
+      setApiError,
+      setIsLoading
+    );
     if (prices.length > 0) {
       settingChartData(setChartData, prices);
       setIsLoading(false);
@@ -55,9 +67,15 @@ const CoinPage = () => {
   const handleGraphToggle = async (event, newGraphType) => {
     setIsLoading(true);
     setGraphType(newGraphType);
-    const prices = await getCoinPrices(id, days, newGraphType,setApiError,setIsLoading);
+    const prices = await getCoinPrices(
+      id,
+      days,
+      newGraphType,
+      setApiError,
+      setIsLoading
+    );
     if (prices.length > 0) {
-      settingChartData(setChartData, prices);
+      settingChartData(setChartData, prices,false,setIsLoading);
       setIsLoading(false);
     }
   };
@@ -71,13 +89,13 @@ const CoinPage = () => {
     );
   }
 
-  if(apiError){
-    return(
+  if (apiError) {
+    return (
       <div>
-        <Header/>
-        <ApiError/>
+        <Header />
+        <ApiError />
       </div>
-    )
+    );
   }
   return (
     <div>
@@ -86,7 +104,12 @@ const CoinPage = () => {
         <List coin={coinData} />
       </div>
       <div className="grey-wrapper">
-        <SelectDays days={days} handleDaysChange={handleDaysChange} />
+        <SelectDays
+          days={days}
+          handleDaysChange={handleDaysChange}
+          apiError={apiError}
+          setIsLoading={setIsLoading}
+        />
         <GraphToggle
           handleGraphToggle={handleGraphToggle}
           graphType={graphType}

@@ -6,3 +6,11 @@
     gap: 1.5rem;
     margin: 0rem 1.5rem;
 }
+
+
+/* ############## MEADIA QURIES ############ */
+@media only screen and (max-width:500px){
+    .crypto-title{
+        display: none;
+    }
+}
