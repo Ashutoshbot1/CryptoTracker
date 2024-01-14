@@ -4,12 +4,13 @@ import Button from "../Button/Button";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-// import TypeAnimation from "../TypeAnimation/TypeAnimation";
 
-const ApiError = () => {
+
+const ApiError = ({getData}) => {
   const [count, setCount] = useState(65);
   const [style, setStyle] = useState({ opacity: 0.5 });
   const navigate = useNavigate();
+
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -29,9 +30,7 @@ const ApiError = () => {
     if (count > 0) {
       toast.error(`Please try after few seconds`);
     } else {
-      console.log(window.location.pathname);
-      // navigate(window.location.pathname);
-      window.location.reload();
+      getData()
     }
   }
   return (

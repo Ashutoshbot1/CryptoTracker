@@ -115,7 +115,7 @@ const ComparePage = () => {
     return(
       <div>
         <Header/>
-        <ApiError/>
+        <ApiError getData={getData}/>
       </div>
     )
   }

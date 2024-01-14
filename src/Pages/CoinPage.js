@@ -93,7 +93,7 @@ const CoinPage = () => {
     return (
       <div>
         <Header />
-        <ApiError />
+        <ApiError getData={getData} />
       </div>
     );
   }

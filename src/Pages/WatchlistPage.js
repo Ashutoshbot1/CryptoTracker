@@ -15,6 +15,8 @@ const WatchlistPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [apiError, setApiError] = useState(false);
   const watchlistCoins = useSelector((state) => state.watchlist);
+  const apiLoad=useSelector(state=>state.apiLoad);
+
 
   // Onloading
   useEffect(() => {
@@ -56,7 +58,7 @@ const WatchlistPage = () => {
     return (
       <div>
         <Header />
-        <ApiError />
+        <ApiError getData={getData}/>
       </div>
     );
   }

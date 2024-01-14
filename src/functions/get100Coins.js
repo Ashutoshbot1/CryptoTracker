@@ -12,7 +12,7 @@ export const get100Coins= async(setApiError,setIsLoading)=>{
         return response.data;
       })
       .catch((err) => {
-        console.log("get100Coins error", err);
+        // console.log("get100Coins error", err);
         toast.error(err.message);
         setApiError(true);
         setIsLoading(false);
