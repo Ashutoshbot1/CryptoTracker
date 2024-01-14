@@ -43,10 +43,10 @@ const List = ({ coin }) => {
         </Tooltip>
 
         <Tooltip title="Price Change In 24hr" placement="bottom">
-          <td>
+          <td className="chip-wrapper">
             {coin.price_change_percentage_24h > 0 ? (
               <td className="chip-flex">
-                <div className="price-chip">
+                <div className="price-chip td-price-chip">
                   {coin.price_change_percentage_24h.toFixed(2)}%
                 </div>
                 <div className="icon-chip td-graph-icon">
