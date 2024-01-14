@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addWatchlist } from "../../../store/slices/WatchlistSlice";
 import { deleteWatchlist } from "../../../store/slices/WatchlistSlice";
+import { toast } from "react-toastify";
 
 const List = ({ coin }) => {
   const watchlistCoins = useSelector((state) => state.watchlist);
@@ -20,8 +21,10 @@ const List = ({ coin }) => {
   function handleWatchlistToggle(coin) {
     if (watchlistCoins.includes(coin.id)) {
       dispatch(deleteWatchlist(coin.id));
+      toast.success(`${coin.name} Removed From Watchlist`);
     } else {
       dispatch(addWatchlist(coin.id));
+      toast.success(`${coin.name} Added To Watchlist`);
     }
   }
 

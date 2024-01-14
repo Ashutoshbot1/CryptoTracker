@@ -3,25 +3,25 @@ import "./Grid.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import StarsRoundedIcon from "@mui/icons-material/StarsRounded";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addWatchlist } from "../../../store/slices/WatchlistSlice";
 import { deleteWatchlist } from "../../../store/slices/WatchlistSlice";
-
-
+import { toast } from "react-toastify";
 
 const Grid = ({ coin, key }) => {
-  const watchlistCoins=useSelector(state=>state.watchlist);
-  const dispatch=useDispatch();
+  const watchlistCoins = useSelector((state) => state.watchlist);
+  const dispatch = useDispatch();
 
   // Toggle Watchlist Function
-  function handleWatchlistToggle(coin){
-    if(watchlistCoins.includes(coin.id)){
+  function handleWatchlistToggle(coin) {
+    if (watchlistCoins.includes(coin.id)) {
       dispatch(deleteWatchlist(coin.id));
-    }
-    else{
+      toast.success(`${coin.name} Removed From Watchlist`);
+    } else {
       dispatch(addWatchlist(coin.id));
+      toast.success(`${coin.name} Added To Watchlist`);
     }
   }
   return (
@@ -39,23 +39,22 @@ const Grid = ({ coin, key }) => {
             <p className="coin-name">{coin.name}</p>
           </div>
           <Link to={`${window.location.href}`}>
-          <div
-            className={`watchlist-icon ${
-              coin.price_change_percentage_24h < 0 &&
-              watchlistCoins.includes(coin.id) &&
-              "watchlist-icon-red"
-            } ${
-              coin.price_change_percentage_24h > 0 &&
-              watchlistCoins.includes(coin.id) &&
-              "watchlist-icon-green"
-            }`}
-            onClick={() => handleWatchlistToggle(coin)}
-          >
-            <StarsRoundedIcon />
-          </div>
+            <div
+              className={`watchlist-icon ${
+                coin.price_change_percentage_24h < 0 &&
+                watchlistCoins.includes(coin.id) &&
+                "watchlist-icon-red"
+              } ${
+                coin.price_change_percentage_24h > 0 &&
+                watchlistCoins.includes(coin.id) &&
+                "watchlist-icon-green"
+              }`}
+              onClick={() => handleWatchlistToggle(coin)}
+            >
+              <StarsRoundedIcon />
+            </div>
           </Link>
         </div>
-        
 
         {coin.price_change_percentage_24h > 0 ? (
           <div className="chip-flex">
