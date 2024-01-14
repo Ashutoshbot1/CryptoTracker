@@ -1,0 +1,14 @@
+.cursor-follow {
+    position: fixed;
+    pointer-events: none;
+    user-select: none;
+    transition: transform 1s ease-out;
+    z-index: 5000000000;
+    font-size: 10px;
+    /* color: var(--blue); */
+  }
+  
+  .cursor-follow:hover {
+    transform: scale(1.5);
+  }
+  

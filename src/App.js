@@ -10,6 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { addWatchlist, deleteWatchlist } from "./store/slices/WatchlistSlice";
 import { useEffect } from "react";
+import CursorFollow from "./Components/Common/CursorFollow/CursorFollow";
+import { motion } from "framer-motion";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,11 +24,9 @@ function App() {
     }
   }, []);
 
-
-
-
   return (
     <div className="App">
+        <CursorFollow />
       <ToastContainer />
       <BrowserRouter>
         <Routes>
